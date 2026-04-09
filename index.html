@@ -203,6 +203,95 @@ Aqui, cada fio conta uma história e cada ponto carrega um toque único, feito e
     window.open(url, "_blank");
   }
 </script>
+<h2>Agenda de Encomendas</h2>
+
+<p style="color:#5a3e45;">
+Aceito pedidos personalizados 💗<br>
+Clique em um dia disponível para iniciar sua encomenda. O dia ficará indisponível enquanto estiver em negociação.
+</p>
+
+<div class="calendario">
+  <div class="dia">1</div>
+  <div class="dia livre" onclick="reservar(this)">2</div>
+  <div class="dia">3</div>
+  <div class="dia livre" onclick="reservar(this)">4</div>
+  <div class="dia">5</div>
+  <div class="dia">6</div>
+  <div class="dia livre" onclick="reservar(this)">7</div>
+
+  <div class="dia">8</div>
+  <div class="dia livre" onclick="reservar(this)">9</div>
+  <div class="dia">10</div>
+  <div class="dia">11</div>
+  <div class="dia livre" onclick="reservar(this)">12</div>
+  <div class="dia">13</div>
+  <div class="dia">14</div>
+
+  <div class="dia livre" onclick="reservar(this)">15</div>
+  <div class="dia">16</div>
+  <div class="dia">17</div>
+  <div class="dia livre" onclick="reservar(this)">18</div>
+  <div class="dia">19</div>
+  <div class="dia">20</div>
+  <div class="dia livre" onclick="reservar(this)">21</div>
+
+  <div class="dia">22</div>
+  <div class="dia livre" onclick="reservar(this)">23</div>
+  <div class="dia">24</div>
+  <div class="dia">25</div>
+  <div class="dia livre" onclick="reservar(this)">26</div>
+  <div class="dia">27</div>
+  <div class="dia">28</div>
+
+  <div class="dia livre" onclick="reservar(this)">29</div>
+  <div class="dia">30</div>
+</div>
+
+<style>
+.calendario {
+  max-width: 350px;
+  margin: 20px auto;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+}
+
+.dia {
+  background: white;
+  padding: 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  color: #5a3e45;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+/* dias livres */
+.livre {
+  background: #f7c6d0;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.livre:hover {
+  transform: scale(1.2);
+  background: #f3a9b8;
+}
+
+/* depois de clicar */
+.ocupado {
+  background: #ddd;
+  color: #888;
+}
+</style>
+
+<script>
+function reservar(elemento) {
+  elemento.classList.remove("livre");
+  elemento.classList.add("ocupado");
+  elemento.innerText += " ✖";
+}
+</script>
 
 </body>
 </html>
