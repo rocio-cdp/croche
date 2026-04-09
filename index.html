@@ -292,6 +292,24 @@ function reservar(elemento) {
   elemento.innerText += " ✖";
 }
 </script>
+<script>
+function reservar(elemento) {
+  let dia = elemento.innerText;
+
+  // muda visual
+  elemento.classList.remove("livre");
+  elemento.classList.add("ocupado");
+  elemento.innerText = dia + " ✖";
+
+  // mensagem pronta
+  let numero = "5599999999999"; // COLOCA SEU NÚMERO
+  let mensagem = "Olá! 💗\n\nTenho interesse em fazer uma encomenda personalizada com a Sofy Stitch.\nGostaria de reservar o dia " + dia + ".\n\nPoderia me passar mais informações? 🧶✨";
+
+  let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+
+  window.open(url, "_blank");
+}
+</script>
 
 </body>
 </html>
