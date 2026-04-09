@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <title>Sofy Stitch</title>
 
+  <!-- Fonte fofinha -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
+
   <style>
     body {
-      font-family: Arial;
+      font-family: 'Quicksand', sans-serif;
       background-color: #f8e8ee;
       text-align: center;
       margin: 0;
@@ -14,56 +17,95 @@
 
     header {
       background-color: #e8c1c9;
-      padding: 25px;
-      font-size: 26px;
-      font-weight: bold;
+      padding: 30px;
       color: #5a3e45;
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      margin: 0;
+      font-size: 32px;
     }
 
     header p {
       font-size: 14px;
       margin-top: 5px;
-      font-weight: normal;
     }
 
     h2 {
       color: #5a3e45;
+      margin-top: 20px;
     }
 
     .produto {
       background: #ffffff;
       margin: 20px;
-      padding: 15px;
-      border-radius: 15px;
+      padding: 20px;
+      border-radius: 20px;
       display: inline-block;
-      width: 220px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      width: 230px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .produto:hover {
+      transform: scale(1.05);
     }
 
     button {
       background-color: #c7e8ca;
       color: #355f3b;
       border: none;
-      padding: 10px;
-      border-radius: 10px;
+      padding: 12px;
+      border-radius: 12px;
       cursor: pointer;
       margin-top: 10px;
+      font-weight: bold;
+      transition: 0.3s;
     }
 
     button:hover {
       background-color: #a8d5ac;
     }
 
-    .whatsapp {
-      margin-top: 30px;
+    /* POPUP */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
     }
+
+    .popup-content {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      width: 300px;
+      margin: 120px auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    }
+
+    .close {
+      cursor: pointer;
+      color: #ff6b6b;
+      float: right;
+      font-weight: bold;
+    }
+
+    .popup button {
+      width: 100%;
+    }
+
   </style>
 </head>
 
 <body>
 
 <header>
-  🧶 Sofy Stitch
+  <h1>🧶 Sofy Stitch</h1>
   <p>feito à mão com amor</p>
 </header>
 
@@ -72,27 +114,51 @@
 <div class="produto">
   <h3>Biquíni de Crochê</h3>
   <p>R$ 230,00</p>
-  <button>Comprar</button>
+  <button onclick="abrirPopup('Biquíni de Crochê')">Comprar</button>
 </div>
 
 <div class="produto">
   <h3>Top de Crochê</h3>
   <p>R$ 120,00</p>
-  <button>Comprar</button>
+  <button onclick="abrirPopup('Top de Crochê')">Comprar</button>
 </div>
 
 <div class="produto">
   <h3>Bolsa de Crochê</h3>
   <p>R$ 150,00</p>
-  <button>Comprar</button>
+  <button onclick="abrirPopup('Bolsa de Crochê')">Comprar</button>
 </div>
 
-<div class="whatsapp">
-  <h3>Fale comigo 💬</h3>
-  <button onclick="window.location.href='https://wa.me/5545999097396'">
-    WhatsApp
-  </button>
+<!-- POPUP -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <span class="close" onclick="fecharPopup()">X</span>
+    <h3 id="produtoNome"></h3>
+    <p>Deseja comprar este produto?</p>
+    <button onclick="comprar()">Finalizar no WhatsApp</button>
+  </div>
 </div>
+
+<script>
+  let produtoSelecionado = "";
+
+  function abrirPopup(nome) {
+    produtoSelecionado = nome;
+    document.getElementById("produtoNome").innerText = nome;
+    document.getElementById("popup").style.display = "block";
+  }
+
+  function fecharPopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+
+  function comprar() {
+    let numero = "5599999999999"; // TROCA PELO TEU NÚMERO
+    let mensagem = "Olá! Quero comprar: " + produtoSelecionado;
+    let url = "https://wa.me/" + numero + "?text=" + encodeURIComponent(mensagem);
+    window.open(url, "_blank");
+  }
+</script>
 
 </body>
 </html>
