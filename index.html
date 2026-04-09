@@ -2,42 +2,70 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Minha Loja de Crochê</title>
+  <title>Sofy Stitch</title>
+
   <style>
     body {
       font-family: Arial;
-      background-color: #fff5f7;
+      background-color: #f8e8ee;
       text-align: center;
       margin: 0;
     }
+
     header {
-      background-color: #ffb6c1;
-      padding: 20px;
-      font-size: 24px;
+      background-color: #e8c1c9;
+      padding: 25px;
+      font-size: 26px;
       font-weight: bold;
+      color: #5a3e45;
     }
+
+    header p {
+      font-size: 14px;
+      margin-top: 5px;
+      font-weight: normal;
+    }
+
+    h2 {
+      color: #5a3e45;
+    }
+
     .produto {
-      background: white;
+      background: #ffffff;
       margin: 20px;
       padding: 15px;
-      border-radius: 10px;
+      border-radius: 15px;
       display: inline-block;
-      width: 200px;
+      width: 220px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
+
     button {
-      background-color: #ff69b4;
-      color: white;
+      background-color: #c7e8ca;
+      color: #355f3b;
       border: none;
       padding: 10px;
-      border-radius: 5px;
+      border-radius: 10px;
       cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #a8d5ac;
+    }
+
+    .whatsapp {
+      margin-top: 30px;
     }
   </style>
 </head>
 
 <body>
 
-<header>🧶 Minha Loja de Crochê</header>
+<header>
+  🧶 Sofy Stitch
+  <p>feito à mão com amor</p>
+</header>
 
 <h2>Produtos</h2>
 
@@ -57,6 +85,13 @@
   <h3>Bolsa de Crochê</h3>
   <p>R$ 150,00</p>
   <button>Comprar</button>
+</div>
+
+<div class="whatsapp">
+  <h3>Fale comigo 💬</h3>
+  <button onclick="window.location.href='https://wa.me/5545999097396'">
+    WhatsApp
+  </button>
 </div>
 
 </body>
